@@ -8,4 +8,5 @@
     * 소점처리, 기하학처리, 화소영역처리, 히스토그램처리
   * 부가기능
     * Undo, Redo
-  * [설명글](https://velog.io/@psh4204/series/MFC)
+
+* [설명글](https://velog.io/@psh4204/series/MFC)
