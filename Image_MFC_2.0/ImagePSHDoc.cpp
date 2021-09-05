@@ -435,10 +435,11 @@ void CImagePSHDoc::OnBwAvgImage()
 			avg += (long)(m_InputImageR[i][k] + m_InputImageG[i][k] + m_InputImageB[i][k]/3);
 		}
 	}
-	avg /= (long)(m_inH*m_inW);
+	avg /= (long)(m_inH * m_inW);
 	for (int i = 0; i < m_inH; i++) {
 		for (int k = 0; k < m_inW; k++) {
-			if(avg > (m_InputImageR[i][k] + m_InputImageG[i][k] + m_InputImageB[i][k]) / 3) 
+			int gray = m_InputImageR[i][k] + m_InputImageG[i][k] + m_InputImageB[i][k] / 3;
+			if(avg < (long)gray) 
 			{ m_OutputImageR[i][k] = m_OutputImageG[i][k] = m_OutputImageB[i][k] = 255; }
 			else { m_OutputImageR[i][k] = m_OutputImageG[i][k] = m_OutputImageB[i][k] = 0; }
 		}
@@ -2089,7 +2090,8 @@ void CImagePSHDoc::OnCalcUsaImage()
 		MessageBox(NULL, L"파일이 열리지 않았습니다.", L"", 0);
 		return;
 	}
-	/* 컬러 Usa연산자
+	
+	//컬러 Usa연산자
 	// TODO: 여기에 구현 코드 추가.
 		// 기존 출력 메모리 해제
 	free2D(m_OutputImageR, m_outH);
@@ -2172,7 +2174,7 @@ void CImagePSHDoc::OnCalcUsaImage()
 	free2D_double(tmpOutputR, m_outH);
 	free2D_double(tmpOutputG, m_outH);
 	free2D_double(tmpOutputB, m_outH);
-	*/
+	/*
 	// TODO: 여기에 구현 코드 추가.
 		// 기존 출력 메모리 해제
 	free2D(m_OutputImageR, m_outH);
@@ -2223,17 +2225,18 @@ void CImagePSHDoc::OnCalcUsaImage()
 	free2D_double(tmpOutput, m_outH);
 
 	AddPoint("OnCalcUsaImage", 0); // (String)함수이름, (dobule)입력값
+	*/
 }
 
 
 void CImagePSHDoc::OnCalcMnsImage()
 {
-	// TODO: 여기에 구현 코드 추가.
 	if (m_InputImageR == NULL) {
 		MessageBox(NULL, L"파일이 열리지 않았습니다.", L"", 0);
 		return;
 	}
-	/* 컬러 Usa연산자 
+	 
+	//컬러 Usa연산자 
 	// TODO: 여기에 구현 코드 추가.
 		// 기존 출력 메모리 해제
 	free2D(m_OutputImageR, m_outH);
@@ -2338,7 +2341,7 @@ void CImagePSHDoc::OnCalcMnsImage()
 	free2D_double(tmpOutputR, m_outH);
 	free2D_double(tmpOutputG, m_outH);
 	free2D_double(tmpOutputB, m_outH);
-	*/
+	/*
 	
 	// TODO: 여기에 구현 코드 추가.
 	// 기존 출력 메모리 해제
@@ -2389,13 +2392,14 @@ void CImagePSHDoc::OnCalcMnsImage()
 	free2D_double(tmpOutput, m_outH);
 
 	AddPoint("OnCalcMnsImage", 0); // (String)함수이름, (dobule)입력값
+	*/
 	
 }
 
 
 void CImagePSHDoc::OnRbrtsImage()
 {
-	/*//  컬러 처리
+	//  컬러 처리
 	// TODO: 여기에 구현 코드 추가.
 	if (m_InputImageR == NULL) {
 		MessageBox(NULL, L"파일이 열리지 않았습니다.", L"", 0);
@@ -2511,7 +2515,7 @@ void CImagePSHDoc::OnRbrtsImage()
 	free2D_double(tmpOutputR2, m_outH);
 	free2D_double(tmpOutputG2, m_outH);
 	free2D_double(tmpOutputB2, m_outH);
-	*/
+	/*
 	// TODO: 여기에 구현 코드 추가.
 if (m_InputImageR == NULL) {
 	MessageBox(NULL, L"파일이 열리지 않았습니다.", L"", 0);
@@ -2590,12 +2594,14 @@ free2D_double(tmpInput, m_inH + (int)(input / 2) * 2);
 free2D_double(tmpOutput, m_outH);
 free2D_double(tmpOutput2, m_outH);
 AddPoint("OnRbrtsImage", 0); // (String)함수이름, (dobule)입력값
+*/
+
 }
 
 
 void CImagePSHDoc::OnPrwImage()
 {
-	/*//  컬러 처리
+	//  컬러 처리
 	// TODO: 여기에 구현 코드 추가.
 	if (m_InputImageR == NULL) {
 		MessageBox(NULL, L"파일이 열리지 않았습니다.", L"", 0);
@@ -2711,7 +2717,7 @@ void CImagePSHDoc::OnPrwImage()
 	free2D_double(tmpOutputR2, m_outH);
 	free2D_double(tmpOutputG2, m_outH);
 	free2D_double(tmpOutputB2, m_outH);
-	*/
+	/*
 	// TODO: 여기에 구현 코드 추가.
 	if (m_InputImageR == NULL) {
 		MessageBox(NULL, L"파일이 열리지 않았습니다.", L"", 0);
@@ -2790,12 +2796,13 @@ void CImagePSHDoc::OnPrwImage()
 	free2D_double(tmpOutput, m_outH);
 	free2D_double(tmpOutput2, m_outH);
 	AddPoint("OnPrwImage", 0); // (String)함수이름, (dobule)입력값
+	*/
 }
 
 
 void CImagePSHDoc::OnSoblImage()
 {
-	/*//  컬러 처리
+	//  컬러 처리
 // TODO: 여기에 구현 코드 추가.
 if (m_InputImageR == NULL) {
 	MessageBox(NULL, L"파일이 열리지 않았습니다.", L"", 0);
@@ -2911,7 +2918,7 @@ free2D_double(tmpOutputB, m_outH);
 free2D_double(tmpOutputR2, m_outH);
 free2D_double(tmpOutputG2, m_outH);
 free2D_double(tmpOutputB2, m_outH);
-*/
+/*
 // TODO: 여기에 구현 코드 추가.
 	if (m_InputImageR == NULL) {
 		MessageBox(NULL, L"파일이 열리지 않았습니다.", L"", 0);
@@ -2991,6 +2998,7 @@ free2D_double(tmpOutputB2, m_outH);
 	free2D_double(tmpOutput2, m_outH);
 
 	AddPoint("OnSoblImage", 0); // (String)함수이름, (dobule)입력값
+	*/
 }
 
 
@@ -3001,7 +3009,7 @@ void CImagePSHDoc::OnLaplaImage()
 		MessageBox(NULL, L"파일이 열리지 않았습니다.", L"", 0);
 		return;
 	}
-	/*
+	
 		// 기존 출력 메모리 해제
 	free2D(m_OutputImageR, m_outH);
 	free2D(m_OutputImageG, m_outH);
@@ -3078,7 +3086,7 @@ void CImagePSHDoc::OnLaplaImage()
 	free2D_double(tmpOutputR, m_outH);
 	free2D_double(tmpOutputG, m_outH);
 	free2D_double(tmpOutputB, m_outH);
-	*/
+	/*
 	free2D(m_OutputImageR, m_outH);
 	free2D(m_OutputImageG, m_outH);
 	free2D(m_OutputImageB, m_outH);
@@ -3126,6 +3134,7 @@ void CImagePSHDoc::OnLaplaImage()
 	free2D_double(tmpOutput, m_outH);
 
 	AddPoint("OnLaplaImage", 0); // (String)함수이름, (dobule)입력값
+	*/
 }
 
 
@@ -3136,7 +3145,7 @@ void CImagePSHDoc::OnLogImage()
 		MessageBox(NULL, L"파일이 열리지 않았습니다.", L"", 0);
 		return;
 	}
-	/*
+	
 		// 기존 출력 메모리 해제
 	free2D(m_OutputImageR, m_outH);
 	free2D(m_OutputImageG, m_outH);
@@ -3215,7 +3224,7 @@ void CImagePSHDoc::OnLogImage()
 	free2D_double(tmpOutputR, m_outH);
 	free2D_double(tmpOutputG, m_outH);
 	free2D_double(tmpOutputB, m_outH);
-	*/
+	/*
 	free2D(m_OutputImageR, m_outH);
 	free2D(m_OutputImageG, m_outH);
 	free2D(m_OutputImageB, m_outH);
@@ -3265,6 +3274,7 @@ void CImagePSHDoc::OnLogImage()
 	free2D_double(tmpOutput, m_outH);
 
 	AddPoint("OnLogImage", 0); // (String)함수이름, (dobule)입력값
+	*/
 }
 
 
@@ -3275,7 +3285,7 @@ void CImagePSHDoc::OnDogImage()
 		MessageBox(NULL, L"파일이 열리지 않았습니다.", L"", 0);
 		return;
 	}
-	/*
+	
 		// 기존 출력 메모리 해제
 	free2D(m_OutputImageR, m_outH);
 	free2D(m_OutputImageG, m_outH);
@@ -3358,7 +3368,7 @@ void CImagePSHDoc::OnDogImage()
 	free2D_double(tmpOutputR, m_outH);
 	free2D_double(tmpOutputG, m_outH);
 	free2D_double(tmpOutputB, m_outH);
-	*/
+	/*
 	// 기존 출력 메모리 해제
 	free2D(m_OutputImageR, m_outH);
 	free2D(m_OutputImageG, m_outH);
@@ -3416,6 +3426,7 @@ void CImagePSHDoc::OnDogImage()
 	free2D_double(tmpOutput, m_outH);
 
 	AddPoint("OnDogImage", 0); // (String)함수이름, (dobule)입력값
+	*/
 }
 
 // RGB 전부 히스토그램 뽑음
@@ -3854,7 +3865,7 @@ void CImagePSHDoc::AutoSavePoint()
 		// - 추후 "/"를 마지막줄로 읽고 해당 함수를 실행할 수 있게끔 만들면 됨.
 		undoTemp = undoStackName[undoStackName.size() - 1 - i];
 		tempFile.Write(undoTemp, undoTemp.GetLength() * sizeof(TCHAR));
-		undoTemp.Format(_T("%lf", undoStackNum[undoStackNum.size() - 1 - i]));
+		undoTemp.Format(_T("%lf", (double)undoStackNum[undoStackNum.size() - 1 - i]));
 		tempFile.Write(undoTemp, undoTemp.GetLength() * sizeof(TCHAR));
 		undoTemp = _T("/");
 		tempFile.Write(undoTemp, undoTemp.GetLength() * sizeof(TCHAR));
